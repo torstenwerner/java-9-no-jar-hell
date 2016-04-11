@@ -6,6 +6,11 @@ jar {
     baseName 'com.app'
 }
 
+task run(type: Exec) {
+    dependsOn ':hello1:jar', ':hello2:jar', ':jar'
+    commandLine 'java', '-modulepath', 'build/libs', '-m', 'com.app/com.app.Main', 'hello2/build/libs/', 'hello1/build/libs/'
+}
+
 wrapper {
     gradleVersion '2.12'
 }

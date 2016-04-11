@@ -1,0 +1,10 @@
+bin*
+lib
+
+# IDEA
+.idea
+*.iml
+out
+
+# Vim
+*.sw[op]

@@ -22,7 +22,7 @@ public class Main {
     }
 
     /**
-     * Load the module com.greeting multiple times from the paths specified on the command line. Create a layer for
+     * Load the module com.greetings multiple times from the paths specified on the command line. Create a layer for
      * each path. Load a service of type {@link java.lang.Runnable} for each layer and execute each one.
      * <p/>
      * We are using {@link java.util.ServiceLoader} here because it is easier and typesafe compared to low level

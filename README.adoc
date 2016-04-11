@@ -1,0 +1,11 @@
+= Avoid the JAR hell with Java 9
+
+- Make sure that you have disabled the gradle daemon.
+- Build everything and run the app with `./gradlew run` .
+
+== Some background
+
+The directories hello1 and hello2 contain almost the same code with just some small modification in the run() method. It
+simulates 2 different versions of the same module. It would be impossible to use both JARs in the same classpath. But it
+is possible to work around that limitation by constructing 2 Layer instances. That is what main code in
+link:src/main/java/com/app/Main.java[Main.java] is doing.

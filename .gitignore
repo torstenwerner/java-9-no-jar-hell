@@ -1,10 +1,5 @@
-bin*
-lib
-
-# IDEA
+.gradle
 .idea
 *.iml
+build
 out
-
-# Vim
-*.sw[op]

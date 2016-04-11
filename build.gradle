@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+jar {
+    baseName 'com.app'
+}
+
+wrapper {
+    gradleVersion '2.12'
+}

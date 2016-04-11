@@ -1,7 +1,7 @@
-= Avoid the JAR hell with Java 9
+= Avoid the JAR hell with Java 9 Jigsaw
 
 - Make sure that you have disabled the gradle daemon (org.gradle.daemon = false).
-- Make sure that JAVA_HOME points to a version 9 jdk.
+- Make sure that JAVA_HOME points to a version 9 jdk (early access build 111 or newer).
 - Build everything and run the app with `./gradlew run` .
 - Only use the patched wrapper scripts that are shipped with this project.
 - The output will show that 2 versions of the same module have been loaded at the same time:
@@ -15,3 +15,5 @@ The directories hello1 and hello2 contain almost the same code with just some sm
 simulates loading 2 different versions of the same module. It would be impossible to use both JARs in the same
 classpath. But it is possible to work around that limitation by constructing 2 Layer instances. That is what main code in
 link:src/main/java/com/app/Main.java[Main.java] is doing.
+
+More information about Java 9 Jigsaw module system: http://openjdk.java.net/projects/jigsaw/

@@ -8,6 +8,12 @@ import java.util.List;
 import java.util.ServiceLoader;
 
 public class Main {
+    /**
+     * Create a new {@link Layer} for a module on a path.
+     *
+     * @param modulePath path where the module is located
+     * @param moduleName name of the module
+     */
     private static Layer createLayer(String modulePath, String moduleName) {
         final ModuleFinder finder = ModuleFinder.of(Paths.get(modulePath));
         final Configuration parentCfg = Layer.boot().configuration();
@@ -15,6 +21,13 @@ public class Main {
         return Layer.boot().defineModulesWithOneLoader(newCfg, ClassLoader.getSystemClassLoader());
     }
 
+    /**
+     * Load the module com.greeting multiple times from the paths specified on the command line. Create a layer for
+     * each path. Load a service of type {@link java.lang.Runnable} for each layer and execute each one.
+     * <p/>
+     * We are using {@link java.util.ServiceLoader} here because it is easier and typesafe compared to low level
+     * reflection.
+     */
     public static void main(String[] args) {
         for (String arg : args) {
             final Layer layer = createLayer(arg, "com.greetings");

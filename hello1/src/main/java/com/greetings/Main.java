@@ -6,6 +6,9 @@ public class Main implements Runnable {
         System.out.println("Greetings from version ONE!");
     }
 
+    /**
+     * The main function is provided here only for testing this module in isolation.
+     */
     public static void main(String[] args) {
         new Main().run();
     }

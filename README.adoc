@@ -1,7 +1,9 @@
 = Avoid the JAR hell with Java 9
 
-- Make sure that you have disabled the gradle daemon.
+- Make sure that you have disabled the gradle daemon (org.gradle.daemon = false).
+- Make sure that JAVA_HOME points to a version 9 jdk.
 - Build everything and run the app with `./gradlew run` .
+- Only use the patched wrapper scripts that are shipped with this project.
 - The output will show that 2 versions of the same module have been loaded at the same time:
 
     Greetings from version TWO!

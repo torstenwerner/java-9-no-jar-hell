@@ -9,7 +9,7 @@ import java.util.ServiceLoader;
 
 public class Main {
     /**
-     * Create a new {@link Layer} for a module on a path.
+     * Create a new {@link java.lang.reflect.Layer} for a module on a path.
      *
      * @param modulePath path where the module is located
      * @param moduleName name of the module

@@ -5,9 +5,13 @@
 * Build everything and run the app with `./gradlew run` .
 ** Only use the patched wrapper scripts that are shipped with this project.
 * The output will show that 2 versions of the same module have been loaded at the same time:
-
+----
+    Loaded module 'com.greetings' from path 'hello2/build/libs/'. Will run its service(s) now:
     Greetings from version TWO!
+
+    Loaded module 'com.greetings' from path 'hello1/build/libs/'. Will run its service(s) now:
     Greetings from version ONE!
+----
 
 == Some background
 

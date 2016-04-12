@@ -32,7 +32,10 @@ public class Main {
         for (String arg : args) {
             final Layer layer = createLayer(arg, "com.greetings");
             final ServiceLoader<Runnable> serviceLoader = ServiceLoader.load(layer, Runnable.class);
+
+            System.out.format("Loaded module 'com.greetings' from path '%s'. Will run its service(s) now:\n", arg);
             serviceLoader.forEach(Runnable::run);
+            System.out.println();
         }
     }
 }

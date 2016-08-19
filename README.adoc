@@ -3,7 +3,6 @@
 * Make sure that you have disabled the gradle daemon (org.gradle.daemon = false).
 * Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 131.
 * Build everything and run the app with `./gradlew run` .
-** Only use the patched wrapper scripts that are shipped with this project.
 * The output will show that 2 versions of the same module have been loaded at the same time:
 ----
     Loaded module 'com.greetings' from path 'hello2/build/libs/'. Will run its service(s) now:
@@ -22,7 +21,4 @@ link:src/main/java/com/app/Main.java[Main.java] is doing.
 
 More information about Java 9 Jigsaw module system: http://openjdk.java.net/projects/jigsaw/
 
-Gradle 2.12 is not yet ready for Jigsaw. The wrapper scripts have been patched to get the compiler running.
-
-    DEFAULT_JVM_OPTS="-XaddExports:jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED"
-
+I have tested it with gradle 3.0. Older versions of gradle might not work out of the box.

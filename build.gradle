@@ -12,5 +12,5 @@ task run(type: Exec) {
 }
 
 wrapper {
-    gradleVersion '2.12'
+    gradleVersion '3.0'
 }

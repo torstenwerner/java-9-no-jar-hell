@@ -4,8 +4,8 @@ import java.lang.module.Configuration;
 import java.lang.module.ModuleFinder;
 import java.lang.reflect.Layer;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.ServiceLoader;
+import java.util.Set;
 
 public class Main {
     /**
@@ -16,9 +16,10 @@ public class Main {
      */
     private static Layer createLayer(String modulePath, String moduleName) {
         final ModuleFinder finder = ModuleFinder.of(Paths.get(modulePath));
-        final Configuration parentCfg = Layer.boot().configuration();
-        final Configuration newCfg = parentCfg.resolveRequires(finder, ModuleFinder.empty(), List.of(moduleName));
-        return Layer.boot().defineModulesWithOneLoader(newCfg, ClassLoader.getSystemClassLoader());
+        final Layer parent = Layer.boot();
+        final Configuration newCfg =
+                parent.configuration().resolveRequires(finder, ModuleFinder.of(), Set.of(moduleName));
+        return parent.defineModulesWithOneLoader(newCfg, ClassLoader.getSystemClassLoader());
     }
 
     /**

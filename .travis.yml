@@ -6,3 +6,5 @@ language: java
 
 jdk:
  - oraclejdk9
+
+script: ./gradlew clean run

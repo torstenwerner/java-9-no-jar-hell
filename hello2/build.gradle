@@ -5,3 +5,9 @@ plugins {
 jar {
     baseName 'com.greetings'
 }
+
+// Run the code without Layers for testing purposes.
+task simpleRun(type: Exec) {
+    dependsOn 'jar'
+    commandLine 'java', '-modulepath', 'build/libs', '-m', 'com.greetings/com.greetings.Main'
+}

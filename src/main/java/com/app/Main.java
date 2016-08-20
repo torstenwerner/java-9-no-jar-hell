@@ -30,11 +30,11 @@ public class Main {
      * reflection.
      */
     public static void main(String[] args) {
-        for (String arg : args) {
-            final Layer layer = createLayer(arg, "com.greetings");
+        for (String modulePath : args) {
+            final Layer layer = createLayer(modulePath, "com.greetings");
             final ServiceLoader<Runnable> serviceLoader = ServiceLoader.load(layer, Runnable.class);
 
-            System.out.format("Loaded module 'com.greetings' from path '%s'. Will run its service(s) now:\n", arg);
+            System.out.format("Loaded module 'com.greetings' from path '%s'. Will run its service(s) now:\n", modulePath);
             serviceLoader.forEach(Runnable::run);
             System.out.println();
         }

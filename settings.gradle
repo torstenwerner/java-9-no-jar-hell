@@ -1,1 +1,1 @@
-include 'hello1', 'hello2'
+include 'shared', 'hello1', 'hello2'

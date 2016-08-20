@@ -1,15 +1,17 @@
 package com.greetings;
 
-public class Main implements Runnable {
+import com.shared.StringSupplier;
+
+public class Main implements StringSupplier {
     @Override
-    public void run() {
-        System.out.println("Greetings from version ONE!");
+    public String get() {
+        return "Greetings from version ONE!";
     }
 
     /**
      * The main function is provided here only for testing this module in isolation.
      */
     public static void main(String[] args) {
-        new Main().run();
+        System.out.println(new Main().get());
     }
 }

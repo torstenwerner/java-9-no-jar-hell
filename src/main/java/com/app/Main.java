@@ -1,11 +1,14 @@
 package com.app;
 
+import com.shared.StringSupplier;
+
 import java.lang.module.Configuration;
 import java.lang.module.ModuleFinder;
 import java.lang.reflect.Layer;
 import java.nio.file.Paths;
 import java.util.ServiceLoader;
 import java.util.Set;
+import java.util.stream.StreamSupport;
 
 public class Main {
     /**
@@ -32,10 +35,12 @@ public class Main {
     public static void main(String[] args) {
         for (String modulePath : args) {
             final Layer layer = createLayer(modulePath, "com.greetings");
-            final ServiceLoader<Runnable> serviceLoader = ServiceLoader.load(layer, Runnable.class);
+            final ServiceLoader<StringSupplier> serviceLoader = ServiceLoader.load(layer, StringSupplier.class);
 
             System.out.format("Loaded module 'com.greetings' from path '%s'. Will run its service(s) now:\n", modulePath);
-            serviceLoader.forEach(Runnable::run);
+            StreamSupport.stream(serviceLoader.spliterator(), false)
+                    .map(StringSupplier::get)
+                    .forEach(System.out::println);
             System.out.println();
         }
     }

@@ -6,8 +6,16 @@ jar {
     baseName 'com.greetings'
 }
 
+dependencies {
+    compile project(':shared')
+}
+
+def sharedModulePath = "${project(':shared').buildDir}/libs"
+
+compileJava.options.compilerArgs.addAll(['-modulepath', sharedModulePath])
+
 // Run the code without Layers for testing purposes.
 task simpleRun(type: Exec) {
     dependsOn 'jar'
-    commandLine 'java', '-modulepath', 'build/libs', '-m', 'com.greetings/com.greetings.Main'
+    commandLine 'java', '-modulepath', "$buildDir/libs:$sharedModulePath", '-m', 'com.greetings/com.greetings.Main'
 }

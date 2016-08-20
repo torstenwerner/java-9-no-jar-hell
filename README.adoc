@@ -10,6 +10,7 @@
     Loaded module 'com.greetings' from path 'hello1/build/libs/'. Will run its service(s) now:
     Greetings from version ONE!
 ----
+* You can see the output at travis-ci: https://travis-ci.org/torstenwerner/java-9-no-jar-hell
 
 == Some background
 

@@ -16,7 +16,8 @@ compileJava.options.compilerArgs.addAll(['-modulepath', sharedModulePath])
 
 task run(type: Exec) {
     dependsOn ':hello1:jar', ':hello2:jar', ':jar'
-    commandLine 'java', '-modulepath', "$buildDir/libs:$sharedModulePath", '-m', 'com.app/com.app.Main', 'hello2/build/libs/', 'hello1/build/libs/'
+    commandLine 'java', '-modulepath', "$buildDir/libs:$sharedModulePath", '-m', 'com.app/com.app.Main',
+            'hello1/build/libs/', 'hello2/build/libs/'
 }
 
 wrapper {

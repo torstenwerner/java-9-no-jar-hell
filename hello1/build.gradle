@@ -17,5 +17,5 @@ compileJava.options.compilerArgs.addAll(['--module-path', sharedModulePath])
 // Run the code without Layers for testing purposes.
 task simpleRun(type: Exec) {
     dependsOn 'jar'
-    commandLine 'java', '-modulepath', "$buildDir/libs:$sharedModulePath", '-m', 'com.greetings/com.greetings.Main'
+    commandLine 'java', '--module-path', "$buildDir/libs:$sharedModulePath", '-m', 'com.greetings/com.greetings.Main'
 }

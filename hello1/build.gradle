@@ -12,7 +12,7 @@ dependencies {
 
 def sharedModulePath = "${project(':shared').buildDir}/libs"
 
-compileJava.options.compilerArgs.addAll(['-modulepath', sharedModulePath])
+compileJava.options.compilerArgs.addAll(['--module-path', sharedModulePath])
 
 // Run the code without Layers for testing purposes.
 task simpleRun(type: Exec) {

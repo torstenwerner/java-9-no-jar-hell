@@ -1,8 +1,9 @@
 package com.greetings;
 
+import com.hidden.HiddenBaseClass;
 import com.shared.StringSupplier;
 
-public class Main implements StringSupplier {
+public class Main extends HiddenBaseClass implements StringSupplier {
     @Override
     public String get() {
         return "Greetings from version TWO!";

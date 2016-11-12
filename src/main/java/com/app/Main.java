@@ -1,5 +1,6 @@
 package com.app;
 
+import com.shared.DerivedClass;
 import com.shared.StringSupplier;
 
 import java.lang.module.Configuration;
@@ -15,6 +16,8 @@ import java.util.stream.StreamSupport;
 
 public class Main {
     private static final String MODULE_NAME = "com.greetings";
+
+    private static final DerivedClass derived = new DerivedClass();
 
     /**
      * Create a new {@link java.lang.reflect.Layer} for the module com.greeting on a path. The boot layer will be the

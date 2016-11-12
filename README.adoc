@@ -1,14 +1,12 @@
 = Avoid the JAR hell with Java 9 Jigsaw
 
-* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 131.
+* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 143.
+** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 9)`
 * Build everything and run the app with `./gradlew run` .
 * The output will show that 2 versions of the same module have been loaded at the same time:
 ----
-    Loaded module 'com.greetings' from path 'hello2/build/libs/'. Will run its service(s) now:
-    Greetings from version TWO!
-
-    Loaded module 'com.greetings' from path 'hello1/build/libs/'. Will run its service(s) now:
     Greetings from version ONE!
+    Greetings from version TWO!
 ----
 * You can see the output at travis-ci: https://travis-ci.org/torstenwerner/java-9-no-jar-hell
 

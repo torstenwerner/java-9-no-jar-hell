@@ -7,4 +7,4 @@ language: java
 jdk:
  - oraclejdk9
 
-script: ./gradlew clean run
+script: ./gradlew --no-daemon clean run

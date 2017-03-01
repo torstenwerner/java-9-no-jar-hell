@@ -2,7 +2,7 @@
 
 * Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 158.
 ** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 9)`
-* Build everything and run the app with `./gradlew run` .
+* Build everything and run the app with `./gradlew --no-daemon run` .
 * The output will show that 2 versions of the same module have been loaded at the same time:
 ----
     Greetings from version ONE!

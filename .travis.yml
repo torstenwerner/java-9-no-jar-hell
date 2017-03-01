@@ -7,4 +7,5 @@ language: java
 jdk:
  - oraclejdk9
 
+install: true
 script: ./gradlew --no-daemon clean run

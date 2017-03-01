@@ -31,3 +31,12 @@ at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 Starting with early access build 148 (and gradle 3.3) you have to use the patched gradle wrapper scripts supplied here.
 And you have to disable the gradle daemon.
 Add `org.gradle.daemon = false` to `~/.gradle/gradle.properties`.
+
+== Docker build ==
+
+Not working yet, sorry.
+
+----
+    docker build -t java-9-no-jar-hell .
+    docker run -it --rm java-9-no-jar-hell
+----

@@ -1,6 +1,6 @@
 = Avoid the JAR hell with Java 9 Jigsaw
 
-* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 149.
+* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 158.
 ** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 9)`
 * Build everything and run the app with `./gradlew run` .
 * The output will show that 2 versions of the same module have been loaded at the same time:
@@ -30,3 +30,4 @@ at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
 Starting with early access build 148 (and gradle 3.3) you have to use the patched gradle wrapper scripts supplied here.
 And you have to disable the gradle daemon.
+Add `org.gradle.daemon = false` to `~/.gradle/gradle.properties`.

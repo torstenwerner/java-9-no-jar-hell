@@ -30,7 +30,7 @@ public class Main {
         final ModuleFinder finder = ModuleFinder.of(Paths.get(modulePath));
         final Layer parent = Layer.boot();
         final Configuration newCfg =
-                parent.configuration().resolveRequires(finder, ModuleFinder.of(), Set.of(MODULE_NAME));
+                parent.configuration().resolve(finder, ModuleFinder.of(), Set.of(MODULE_NAME));
         return parent.defineModulesWithOneLoader(newCfg, ClassLoader.getSystemClassLoader());
     }
 

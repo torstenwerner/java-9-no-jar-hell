@@ -1,11 +1,9 @@
 sudo: required
-dist: trusty
-group: edge
 
-language: java
+services:
+  - docker
 
-jdk:
- - oraclejdk9
-
-install: true
-script: ./gradlew --no-daemon clean run
+before_install:
+  - docker pull openjdk:9
+  - docker build -t java-9-no-jar-hell .
+  - docker run -it --rm java-9-no-jar-hell

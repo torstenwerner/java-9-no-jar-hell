@@ -34,8 +34,6 @@ Add `org.gradle.daemon = false` to `~/.gradle/gradle.properties`.
 
 == Docker build ==
 
-Not working yet, sorry.
-
 ----
     docker pull openjdk:9
     docker build -t java-9-no-jar-hell .

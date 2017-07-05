@@ -5,7 +5,7 @@ import com.shared.StringSupplier;
 
 import java.lang.module.Configuration;
 import java.lang.module.ModuleFinder;
-import java.lang.reflect.Layer;
+import java.lang.ModuleLayer;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
@@ -26,9 +26,9 @@ public class Main {
      *
      * @param modulePath path where the module is located
      */
-    private static Layer createLayer(String modulePath) {
+    private static ModuleLayer createLayer(String modulePath) {
         final ModuleFinder finder = ModuleFinder.of(Paths.get(modulePath));
-        final Layer parent = Layer.boot();
+        final ModuleLayer parent = ModuleLayer.boot();
         final Configuration newCfg =
                 parent.configuration().resolve(finder, ModuleFinder.of(), Set.of(MODULE_NAME));
         return parent.defineModulesWithOneLoader(newCfg, ClassLoader.getSystemClassLoader());
@@ -37,7 +37,7 @@ public class Main {
     /**
      * Creates several layers in a batch. A new layer is created for each item in modulePaths.
      */
-    private static List<Layer> createAllLayers(String[] modulePaths) {
+    private static List<ModuleLayer> createAllLayers(String[] modulePaths) {
         return Arrays.stream(modulePaths)
                 .map(Main::createLayer)
                 .collect(Collectors.toList());
@@ -46,7 +46,7 @@ public class Main {
     /**
      * Loads the services of type StringSupplier found in the layer.
      */
-    private static ServiceLoader<StringSupplier> loadServices(Layer layer) {
+    private static ServiceLoader<StringSupplier> loadServices(ModuleLayer layer) {
         return ServiceLoader.load(layer, StringSupplier.class);
     }
 
@@ -69,7 +69,7 @@ public class Main {
      * reflection, and it has been improved in Java 9.
      */
     public static void main(String[] args) {
-        final List<Layer> layers = createAllLayers(args);
+        final List<ModuleLayer> layers = createAllLayers(args);
         // All modules are loaded now in the same jvm but in different layers.
 
         // Loading and executing the services from conflicting module versions now.

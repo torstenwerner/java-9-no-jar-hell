@@ -19,3 +19,5 @@ task simpleRun(type: Exec) {
     dependsOn 'jar'
     commandLine 'java', '--module-path', "$buildDir/libs:$sharedModulePath", '-m', 'com.greetings/com.greetings.Main'
 }
+
+compileJava.options.compilerArgs.addAll(['--source-path', "$projectDir/src/main/java"])

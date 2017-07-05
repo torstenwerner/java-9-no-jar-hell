@@ -1,6 +1,6 @@
 = Avoid the JAR hell with Java 9 Jigsaw
 
-* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 158.
+* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 176.
 ** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 9)`
 * Build everything and run the app with `./gradlew --no-daemon run` .
 * The output will show that 2 versions of the same module have been loaded at the same time:
@@ -14,12 +14,12 @@
 
 The directories hello1 and hello2 contain almost the same code with just some small modification in the run() method. It
 simulates loading 2 different versions of the same module. It would be impossible to use both JARs in the same
-classpath. But it is possible to work around that limitation by constructing 2 Layer instances. That is what main code in
+classpath. But it is possible to work around that limitation by constructing 2 ModuleLayer instances. That is what main code in
 link:src/main/java/com/app/Main.java[Main.java] is doing.
 
 More information about Java 9 Jigsaw module system: http://openjdk.java.net/projects/jigsaw/
 
-I have tested it with gradle 3.0. Older versions of gradle might not work out of the box.
+I have tested it with gradle 4.0. Older versions of gradle might not work out of the box.
 
 == Continuous Integration thanks to Travis CI
 
@@ -28,8 +28,7 @@ at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
 == Warning ==
 
-Starting with early access build 148 (and gradle 3.3) you have to use the patched gradle wrapper scripts supplied here.
-And you have to disable the gradle daemon.
+You have to disable the gradle daemon.
 Add `org.gradle.daemon = false` to `~/.gradle/gradle.properties`.
 
 == Docker build ==

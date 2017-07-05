@@ -5,3 +5,5 @@ plugins {
 jar {
     baseName 'com.shared'
 }
+
+compileJava.options.compilerArgs.addAll(['--source-path', "$projectDir/src/main/java"])

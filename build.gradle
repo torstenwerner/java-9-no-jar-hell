@@ -12,7 +12,7 @@ dependencies {
 
 def sharedModulePath = "${project(':shared').buildDir}/libs"
 
-compileJava.options.compilerArgs.addAll(['--module-path', sharedModulePath])
+compileJava.options.compilerArgs.addAll(['--module-path', sharedModulePath, '--source-path', "$projectDir/src/main/java"])
 
 task run(type: Exec) {
     dependsOn ':hello1:jar', ':hello2:jar', ':jar'
@@ -21,6 +21,6 @@ task run(type: Exec) {
 }
 
 wrapper {
-    gradleVersion '3.4.1'
+    gradleVersion '4.0'
     distributionType 'all'
 }

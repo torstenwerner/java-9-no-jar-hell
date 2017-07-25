@@ -26,16 +26,7 @@ I have tested it with gradle 4.0. Older versions of gradle might not work out of
 Build image:https://api.travis-ci.org/torstenwerner/java-9-no-jar-hell.svg[status]
 at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
-== Warning ==
-
-NOTE: This information might be outdated. I'll check and fix it later.
-
-You have to disable the gradle daemon.
-Add `org.gradle.daemon = false` to `~/.gradle/gradle.properties`.
-
 == Docker build ==
-
-WARNING: During the time of writing the openjdk shipped by docker is too old (170 vs. 176).
 
 ----
     docker pull openjdk:9

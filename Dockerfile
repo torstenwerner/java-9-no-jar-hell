@@ -13,6 +13,6 @@ RUN ./gradlew --version
 
 # build the project and run tests
 COPY . /usr/src/app/
-RUN ./gradlew --no-daemon build
+RUN ./gradlew build
 
-CMD ["./gradlew", "--no-daemon", "run"]
+CMD ["./gradlew", "run"]

@@ -12,7 +12,8 @@ dependencies {
 
 def sharedModulePath = "${project(':shared').buildDir}/libs"
 
-compileJava.options.compilerArgs << '--module-path' << sharedModulePath << '--source-path' << "$projectDir/src/main/java"
+compileJava.options.compilerArgs << '--module-path' << sharedModulePath
+compileJava.options.sourcepath = files("$projectDir/src/main/java")
 
 task run(type: Exec) {
     dependsOn ':hello1:jar', ':hello2:jar', ':jar'

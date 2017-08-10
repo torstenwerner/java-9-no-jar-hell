@@ -6,4 +6,4 @@ jar {
     baseName 'com.shared'
 }
 
-compileJava.options.compilerArgs << '--source-path' << "$projectDir/src/main/java"
+compileJava.options.sourcepath = files("$projectDir/src/main/java")

@@ -5,5 +5,3 @@ plugins {
 jar {
     baseName 'com.shared'
 }
-
-compileJava.options.sourcepath = files("$projectDir/src/main/java")

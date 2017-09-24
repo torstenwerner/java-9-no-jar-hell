@@ -32,7 +32,7 @@ I have tested it with gradle 4.0. Older versions of gradle might not work out of
 Build image:https://api.travis-ci.org/torstenwerner/java-9-no-jar-hell.svg[status]
 at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
-== Docker build ==
+== Docker build
 
 Sorry, but the openjdk 9-b181 docker image fails with
 
@@ -43,3 +43,8 @@ Instructions:
     docker pull openjdk:9
     docker build -t java-9-no-jar-hell .
     docker run -it --rm java-9-no-jar-hell
+
+== IntelliJ bug
+
+Switch to JDK 8 if the initial import of the gradle project fails.
+Switch to JDK 9 after the initial import.

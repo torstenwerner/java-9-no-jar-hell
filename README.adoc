@@ -25,7 +25,7 @@ link:src/main/java/com/app/Main.java[Main.java] is doing.
 
 More information about Java 9 Jigsaw module system: http://openjdk.java.net/projects/jigsaw/
 
-I have tested it with gradle 4.0. Older versions of gradle might not work out of the box.
+I have tested it with gradle 4.2. Older versions of gradle might not work out of the box.
 
 == Continuous Integration thanks to Travis CI
 

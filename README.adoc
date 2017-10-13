@@ -34,13 +34,9 @@ at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
 == Docker build
 
-Sorry, but the openjdk 9-b181 docker image fails with
+Instructions (use sudo on Linux):
 
-    java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty"
-
-Instructions:
-
-    docker pull openjdk:9
+    docker pull openjdk:9-slim
     docker build -t java-9-no-jar-hell .
     docker run -it --rm java-9-no-jar-hell
 

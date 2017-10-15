@@ -5,8 +5,8 @@ services:
 
 before_install:
   - docker pull openjdk:9-slim
+
+script:
   - docker build -t java-9-no-jar-hell .
   - docker run -it --rm java-9-no-jar-hell
-
-script: true
 

@@ -36,7 +36,7 @@ at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
 Instructions (use sudo on Linux):
 
-    docker pull openjdk:9-slim
+    docker pull openjdk:11-slim
     docker build -t java-9-no-jar-hell .
     docker run -it --rm java-9-no-jar-hell
 

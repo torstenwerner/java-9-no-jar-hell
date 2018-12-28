@@ -1,7 +1,7 @@
-= Avoid the JAR hell with Java 9 Jigsaw
+= Avoid the JAR hell with Java >= 9 Jigsaw
 
-* Make sure that JAVA_HOME points to a version 9 jdk. I have tested it with early access build 176.
-** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 9)`
+* Make sure that JAVA_HOME points to a version 11 jdk.
+** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 11)`
 * Build everything and run the app with `./gradlew run` .
 * The output will show that 2 versions of the same module have been loaded at the same time:
 ----
@@ -19,7 +19,7 @@ link:src/main/java/com/app/Main.java[Main.java] is doing.
 
 More information about Java 9 Jigsaw module system: http://openjdk.java.net/projects/jigsaw/
 
-I have tested it with gradle 4.0. Older versions of gradle might not work out of the box.
+I have tested it with gradle 5.0.
 
 == Continuous Integration thanks to Travis CI
 

@@ -21,6 +21,6 @@ task run(type: Exec) {
 }
 
 wrapper {
-    gradleVersion '4.1'
-    distributionType 'all'
+    gradleVersion '5.0'
+    distributionType Wrapper.DistributionType.ALL
 }

@@ -1,4 +1,4 @@
-FROM openjdk:9
+FROM openjdk:9-slim
 MAINTAINER Torsten Werner
 
 # https://github.com/docker-library/openjdk/issues/101

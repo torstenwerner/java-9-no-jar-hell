@@ -1,13 +1,19 @@
 = Avoid the JAR hell with Java >= 9 Jigsaw
 
 * Make sure that JAVA_HOME points to a version 11 jdk.
-** On OS X: `export JAVA_HOME=$(/usr/libexec/java_home 11)`
-* Build everything and run the app with `./gradlew run` .
+** On OS X:
+
+    export JAVA_HOME=$(/usr/libexec/java_home 11)
+
+* Build everything and run the app with
+
+    ./gradlew run
+
 * The output will show that 2 versions of the same module have been loaded at the same time:
-----
+
     Greetings from version ONE!
     Greetings from version TWO!
-----
+
 * You can see the output at travis-ci: https://travis-ci.org/torstenwerner/java-9-no-jar-hell
 
 == Some background
@@ -26,10 +32,15 @@ I have tested it with gradle 5.0.
 Build image:https://api.travis-ci.org/torstenwerner/java-9-no-jar-hell.svg[status]
 at link:https://travis-ci.org/torstenwerner/java-9-no-jar-hell[Travis CI]
 
-== Docker build ==
+== Docker build
 
-----
-    docker pull openjdk:9
+Instructions (use sudo on Linux):
+
+    docker pull openjdk:9-slim
     docker build -t java-9-no-jar-hell .
     docker run -it --rm java-9-no-jar-hell
-----
+
+== IntelliJ bug
+
+Switch to JDK 8 if the initial import of the gradle project fails.
+Switch to JDK 9 after the initial import.

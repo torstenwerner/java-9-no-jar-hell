@@ -16,7 +16,7 @@ compileJava.options.compilerArgs << '--module-path' << sharedModulePath
 
 task run(type: Exec) {
     dependsOn ':hello1:jar', ':hello2:jar', ':jar'
-    commandLine 'java', '--module-path', "$buildDir/libs:$sharedModulePath", '-m', 'com.app/com.app.Main',
+    commandLine 'java', '--module-path', "$buildDir/libs" + File.pathSeparator + "$sharedModulePath", '-m', 'com.app/com.app.Main',
             'hello1/build/libs/', 'hello2/build/libs/'
 }
 
